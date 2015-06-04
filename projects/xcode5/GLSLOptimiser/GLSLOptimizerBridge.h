@@ -71,6 +71,13 @@ typedef NS_ENUM(NSUInteger, GLSLOptPrecision) {
 -(UInt32)inputCount;
 -(GLSLShaderVariableDescription *)inputDescription:(UInt32)index;
 
+-(UInt32)uniformCount;
+-(UInt32)uniformTotalSize;
+-(GLSLShaderVariableDescription *)uniformDescription:(UInt32)index;
+
+-(UInt32)textureCount;
+-(GLSLShaderVariableDescription *)textureDescription:(UInt32)index;
+
 @end
 
 @interface GLSLOptimizer: NSObject
