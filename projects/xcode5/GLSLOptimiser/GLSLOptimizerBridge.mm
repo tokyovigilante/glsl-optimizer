@@ -14,6 +14,36 @@
 
 @implementation GLSLShaderVariableDescription
 
+-(UInt32)elementCount {
+    return self.vecSize * self.matSize * (self.arraySize == -1 ? 1 : self.arraySize);
+}
+
+-(UInt32)elementSize {
+    UInt32 elementSize = 0;
+    
+    switch (self.type) {
+        case GLSLOptBasicTypeFloat:
+            elementSize = sizeof(float);
+            break;
+        case GLSLOptBasicTypeInt:
+            elementSize = sizeof(int);
+            break;
+        case GLSLOptBasicTypeBool:
+            elementSize = sizeof(bool);
+            break;
+        case GLSLOptBasicTypeTex2D:
+        case GLSLOptBasicTypeTex3D:
+        case GLSLOptBasicTypeTexCube:
+            break;
+        default:
+            break;
+    }
+    return elementSize;
+}
+-(UInt32)rawSize {
+    return [self elementCount] * [self elementSize];
+}
+
 @end
 
 typedef NS_ENUM(NSUInteger, GLSLShaderVariableType) {

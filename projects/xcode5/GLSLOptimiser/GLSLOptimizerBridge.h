@@ -59,6 +59,10 @@ typedef NS_ENUM(NSUInteger, GLSLOptPrecision) {
 @property SInt32 arraySize;
 @property UInt32 location;
 
+-(UInt32)elementCount;
+-(UInt32)elementSize;
+-(UInt32)rawSize;
+
 @end
 
 @interface GLSLShader: NSObject

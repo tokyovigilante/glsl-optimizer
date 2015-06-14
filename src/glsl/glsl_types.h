@@ -427,7 +427,7 @@ struct glsl_type {
     */
    bool is_sampler() const
    {
-      return base_type == GLSL_TYPE_SAMPLER;
+       return base_type == GLSL_TYPE_SAMPLER;
    }
 
    /**
